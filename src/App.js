@@ -1,9 +1,15 @@
-import Game from './components/Game';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-function App() {
+import Game from './components/Game';
+import reducers from './reducers';
+
+const store = createStore(reducers);
+
+export default function App() {
   return (
-    <Game />
+    <Provider store={store}>
+      <Game />
+    </Provider>
   );
 }
-
-export default App;
